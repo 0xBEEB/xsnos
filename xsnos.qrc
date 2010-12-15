@@ -1,0 +1,37 @@
+<!--
+
+ Copyright © 2010 Thomas Schreiber <ubiquill@gmail.com>
+
+ This file is part of xsnos.
+
+ Xsnos is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ at your option) any later version.
+
+ Xsnos is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with xsnos.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE RCC><RCC version="1.0">
+
+<qresource>
+    <file>images/x.png</file>
+    <file>images/o.png</file>
+    <file>images/empty.png</file>
+    <file>images/x_turn.png</file>
+    <file>images/o_turn.png</file>
+    <file>images/x_wins.png</file>
+    <file>images/o_wins.png</file>
+    <file>images/draw.png</file>
+    <file>images/bg.png</file>
+    <file>images/title.png</file>
+    <file>images/new_game.png</file>
+    <file>images/undo.png</file>
+    <file>images/quit.png</file>
+</qresource>
+</RCC>

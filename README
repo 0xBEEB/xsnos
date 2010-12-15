@@ -1,0 +1,107 @@
+///////////////////////////////////////////////////////////////////////
+// Copyright © 2010 Thomas Schreiber <ubiquill@gmail.com>
+//
+// This file is part of xsnos.
+//
+// Xsnos is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// at your option) any later version.
+//
+// Xsnos is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with xsnos.  If not, see <http://www.gnu.org/licenses/>.
+///////////////////////////////////////////////////////////////////////
+
+About
+    xsnos is a tictactoe game designed with children age 5-9 in mind.
+Players are allowed to act out of turn, but our given visual queues 
+about whose turn it is. This play style is much more free form than
+most computer tictactoe variants. It is inspired by physical board
+games and the richness of interaction kids get from that.
+
+Logging
+    Games of tictactoe can optionally be logged. At the end of each
+game the move history for that game is sent to stdout. If you would
+like this in a file redirect the output to a logfile. If you want
+no output redirect the output to /dev/null. 
+    The log is printed in the following format:
+{Player}->({x coordinate},{y coordinate}):
+    Colons delimit each move newlines delimit each game. Undoes 
+are not logged, and only the set of moves that lead to the end game
+state will be printed. 
+
+Instructions for how to compile and use Xs-n-Os (a.k.a. xsnos)
+
+Requirements
+    * GCC and C++ tools
+    * mercurial
+    * libqtgui4, libqtcore4, pthread-stubs
+    (the "devel" packages of libqtgui4, libqtcore4, qmake, and 
+        pthread-stubs must be installed prior to compiling)
+
+To get the source code, use the following command:
+    hg clone https://bitbucket.org/ubiquill/xsnos/
+
+To compile the package:
+    cd xsnos
+    qmake-qt4
+    make
+
+You should now be able to run the program:
+    ./tictactoe
+
+In the Linux Lab at Portland State University:
+    make && ./tictactoe
+
+Manifest of files
+    xsnos/
+        COPYING             ; GPLv3 information
+        COPYING2            ; BSD License information
+        GameSpace.cc        ; A class of spaces that represent one cell on a tictactoe board
+        GameSpace.hh        ; GameSpace.cc's header file
+        images/             ; Directory where all of the images are stored
+            bg.png          ; Background of board
+            draw.png        ; Image displayed when the game ends in a draw (cat's game)
+            empty.png       ; Image drawn when a square is blank
+            new_game.png    ; Image for new game button
+            o.png           ; O piece image
+            o_turn.png      ; Image that displays when it is O's turn
+            o_wins.png      ; Image displayed when O wins
+            quit.png        ; Image displayed on the quit button
+            COPYING3        ; Creative Commons License for all images
+            title.png       ; Stylish title image
+            undo.png        ; Image displayed on the undo button
+            x.png           ; X piece image
+            x_turn.png      ; Image displayed when it is X's turn
+            x_wins.png      ; Image displayed when X wins
+        main.cc             ; Main driver file
+        MainWindow.cc       ; This class is the base of operations
+        MainWindow.hh       ; MainWindow's header file
+        Makefile            ; The file that makes the executable
+        PiecesList.cc       ; Modified version of Qt's Pieceslist class
+        PiecesList.hh       ; Used here in accordance with the BSD License
+        README              ; This file!
+        tictactoe           ; Executable complied for 64-bit systems in PSU Linux lab
+        xsnos.pro           ; Project profile used by qmake-qt4 to auto-generate Makefile
+        xsnos.qrc           ; List of graphical resources
+
+Style Guide
+    xsnos follows the Wildfire style guide, which can be located at
+    http://www.chris-lott.org/resources/cstyle/Wildfire-C++Style.html,
+    with the following exceptions.
+
+    Section 5.2: Class Methods may also be mixed case (camelCase) in order
+                stay consistent with Qt class methods.
+
+Credit
+    Bart Massey     For ideas about draw condition algorithms and being an awesome proffessor
+    Kevin Dyer      Our class TA for helping verify program requirements
+    David Snyder    For helping with code review
+    
+    I made heavy use of the Qt 'Drag and Drop' tutorial and example located at:
+        http://doc.qt.nokia.com/4.7-snapshot/draganddrop-puzzle.html
